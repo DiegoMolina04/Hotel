@@ -1,0 +1,462 @@
+/*
+ * Importación de fuentes
+ */
+@font-face {
+  font-family: "Fuente-contenido";
+  src: url("../fonts/Mithella-Regular.otf");
+}
+@font-face {
+  font-family: "Fuente-Titulos";
+  src: url("../fonts/Friendly-Schoolmates.otf");
+}
+
+/*
+ * Variables globales
+ */
+:root{
+  --bubblestiming: 10s;
+}
+
+/*
+ * Estilos Globales
+ */
+
+/* Estilos de scrolbar*/
+::-webkit-scrollbar{
+  background-color: #2499c7;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgba(255, 255, 255, 0.452);
+  border-radius: 50px;
+}
+
+/* Estilos del cuerpo */
+body {
+  font-family: "Fuente-contenido";
+  background-color: #f1f1f1;
+  overflow-x: hidden;
+}
+
+/* Estilos para los títulos*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #1000C2;
+  font-family: "Fuente-Titulos";
+}
+
+/* Estilos para los enlaces*/ 
+a {
+  text-decoration: none;
+}
+
+/*
+ * Estilos Navbar
+ */
+.nav-links {
+  background-color: #000000;
+}
+
+.ul-link-nav > li {
+  padding: 5px 2rem 5px 2rem;
+}
+
+.ul-link-nav > li > a {
+  color: whitesmoke;
+}
+
+.ul-link-nav > li:hover {
+  background-color: #657c9b;
+}
+
+#slog {
+  font-size: 2rem;
+  color:#ffffff;
+  padding-left: 0px;
+  font-family: "Fuente-Titulos";
+}
+
+.div-central-nav {
+  width: 30rem;
+}
+
+#carouselExampleControls {
+  padding-left: 1rem;
+}
+.buttons {
+  background-color: #2499c7;
+  color: white;
+}
+.buttons:hover {
+  background-color: #15598e;
+  color: white;
+}
+
+#nabvar-button {
+  color:#1000C2;
+  background-color: rgb(255, 255, 255);
+}
+
+/*
+ * Estilos Footer
+ */
+footer {
+  background-color: #2499c7 !important;
+  font-size: 1rem;
+  color: white;
+  margin-top: 2rem;
+  padding: 3rem;
+}
+.titles-footer {
+  color: white;
+}
+.titulo-fino{
+
+  font-family: "Fuente-contenido";
+}
+.subtitulo-fino{
+  font-family: "Fuente-contenido";
+
+}
+.ul-footer {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.shadow-card {
+  box-shadow: 0px 0px 15px 3px #d6d6d6;
+}
+#link-rooms {
+  color: black !important;
+}
+#button-link-rooms:hover > a {
+  color: white !important;
+}
+
+@media (max-width: 750px) {
+  .ul-link-nav > li {
+    padding: 5px 2rem 5px 1rem;
+  }
+}
+
+.carousel-item img {
+  object-fit: cover;
+}
+.modal-footer{
+  background-color:#2499c7;
+
+}
+
+.navbar-light{
+  background-color: #2499c7 !important;
+}
+
+.menuPerfil{
+  position: absolute;
+  list-style: none;
+  border-radius: 10%;
+  background-color:#2fb7ec;
+  padding: 0;
+  overflow: hidden;
+  color: white;
+  display: none;
+  z-index: 1;
+}
+.menuPerfil li{
+  width: 100%;
+  padding: 20px;
+  transition: all .5s;
+}
+.menuPerfil a li{
+  color: white;
+}
+
+.menuPerfil li:hover{
+  background-color:#2983d8;
+}
+
+.fotoPerfil:hover .menuPerfil{
+  display: block;
+}
+.fotoPerfil:hover{
+  cursor: pointer;
+}
+
+.star-rating a {
+  display: inline-block;
+  color: #95a5a6; /* gris (normal) */
+  font-size: xx-large;
+}
+.star-rating:hover a {
+  color: #f39c12; /* amarillo (seleccionado) */
+}
+  .star-rating:hover a:hover ~ a {
+    color: #95a5a6; /* gris (normal) */
+  }
+
+/*Estilos Login*/
+.body_login_clients{
+  background-image: url("../img/background_body_client.jpg");
+  background-size: cover;
+}
+
+.body_login_admin{
+  background-image: url("../img/background_body_admin.jpg");
+  background-size: cover;
+}
+
+.container_login{
+  margin-top: 5%;
+}
+
+#container_links_login{
+  margin-top: 20px;
+}
+
+.link_login{
+  display: block;
+}
+
+/*Estilos formulario Registro*/
+.register_form{
+  margin-top: 15px;
+}
+
+.register_body{
+  background-color: white;
+}
+
+.register_image{
+  background-color: #2499c7 !important;
+  text-align: center;
+  align-items: center;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+label{
+  font-weight: bold;
+}
+
+.title_card_show{
+  margin-bottom: 0px;
+}
+
+
+.carousel img{
+  width: 100%;
+  height: 50vh;
+  filter: opacity(70%);
+  object-fit: cover;
+}
+.carousel{
+  background-color: #000000;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 40%;
+  height: fit-content;
+  transform: translateY(-50%) translateX(-50%);
+  padding: 70px;
+  border-radius: 56% 44% 28% 72% / 62% 63% 37% 38% ;
+  background-color: rgba(0, 0, 0, 0.07);
+  box-shadow: white 0 0 20px inset;
+  /*animation: bubbles var(--bubblestiming) linear alternate infinite;*/
+}
+
+.carousel-caption:last-child{
+  left: 75%;
+  /*animation: bubbles calc(var(--bubblestiming)*0.8) linear alternate-reverse infinite;*/
+}
+
+.carousel div > h5{
+  color: cyan;
+  font-size: 1.5em;
+}
+
+.titulo-card{
+  font-size: 2rem;
+  text-shadow: #2499c7 0 6px 1rem;
+}
+
+.eventos{
+  height: 400px; 
+  object-fit: cover; 
+}
+
+.container-eventos{
+  flex-wrap: wrap;
+}
+
+.card:has(.eventos){
+  margin: 25px 0px;
+  flex-shrink: 0;
+}
+
+.headerIcon{
+  width: 10vw;
+}
+
+.estado1{
+  padding: 2px;
+  border-radius: 15%;
+  background-color: rgb(24, 230, 113)!important;
+}
+.estado2{
+  padding: 2px;
+  border-radius: 15%;
+  background-color: rgb(230, 48, 24)!important;
+  color: white;
+}
+.estado3{
+  padding: 2px;
+  border-radius: 15%;
+  background-color: rgb(136, 136, 136)!important;
+  color:white;
+}
+.estado4{
+  padding: 2px;
+  border-radius: 15%;
+  background-color: rgb(24, 168, 230)!important;
+}
+.estado5{
+  padding: 2px;
+  border-radius: 15%;
+  background-color: rgb(243, 229, 40)!important;
+}
+
+nav[role="navigation"] svg {
+  max-width: 50px;
+}
+
+.confirmacion {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  top: 0;
+  justify-content: center;
+  left: 0;
+  background-color: #00000091;
+  transition: opacity 2s linear;
+}
+
+
+@media screen and (max-width: 900px) {
+  .headerIcon{
+    width: 150px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .card:has(.eventos){
+    width: 100%!important;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .card:has(.eventos){
+    width: 30%!important;
+  }
+}
+
+@keyframes bubbles {
+  0%{
+    border-radius: 56% 44% 28% 72% / 62% 63% 37% 38% ;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  25%{
+    border-radius: 74% 26% 70% 30% / 35% 54% 46% 65% ;
+    transform: translateX(-40%) translateY(-60%);
+  }
+  50%{
+    border-radius: 36% 64% 40% 60% / 56% 39% 61% 44% ;
+    transform: translateX(-55%) translateY(-55%);
+  }
+  75%{
+    border-radius: 24% 76% 33% 67% / 39% 70% 30% 61% ;
+  }
+  100%{
+    border-radius: 74% 26% 33% 67% / 35% 37% 63% 65% ;
+    transform: translateX(-40%) translateY(-30%);
+  }
+}
+
+input{
+  text-align: center !important;
+}
+
+.screen {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.bed {
+  width: 50px;
+  height: 50px;
+  background-image: url('../../img/gestionHabitaciones/cama_disponible.png');
+  background-size: cover;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.ocupada{
+  width: 50px;
+  height: 50px;
+  background-image: url('../../img/gestionHabitaciones/cama_nodisponible.png');
+  background-size: cover;
+  margin: 5px;
+  cursor: pointer;
+}
+.bed.clausurada{
+  width: 50px;
+  height: 50px;
+  background-image: url('../../img/gestionHabitaciones/cama_clausurada.png');
+  background-size: cover;
+  margin: 5px;
+  cursor: pointer;
+}
+.mantenimiento{
+  width: 50px;
+  height: 50px;
+  background-image: url('../../img/gestionHabitaciones/cama_mantenimiento.png');
+  background-size: cover;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.bed.selected {
+  background-image: url('../../img/gestionHabitaciones/cama_disponible_v2.png');
+}
+
+/* Estilos modulo reservations: */
+.reservation-section{
+  margin-top: 15px;
+}
+
+.title-reservation-section{
+  font-family: "Fuente-contenido";
+  font-size: 27px;
+}
+
+.td_reservation{
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.ul_alert{
+  margin-bottom: 0px;
+}
+
+.button-reservation{
+  margin: 7px 0px 7px 0px;
+}
