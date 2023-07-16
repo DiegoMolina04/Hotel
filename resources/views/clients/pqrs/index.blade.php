@@ -2,7 +2,9 @@
 
 @section('title', 'Home')
 
-{{-- Envio del item que debe aparecer como activo en el menu de navegacion --}}
+{{-- Envio del item que debe aparecer como activo en el menu de navegacion 
+    
+    --}}
 @section('itemActive', 'pqrs_create')
 
 @section('content')
@@ -15,12 +17,12 @@
         <div class="card rounded-5 p-4 col-md-9 col-12 offset-md-1">
             <div class="card-body">
                 <!-- <label for="nombre">Escribe tu nombre:</label>
-                                                                                <br>
-                                                                                <br>
-                                                                                <div class="col-12 col-md-8">
-                                                                                    <input class="form-control" placeholder="Nombre Completo" type="text"id="nombre" name="nombre">
-                                                                                </div>
-                                                                             -->
+                                                                                    <br>
+                                                                                    <br>
+                                                                                    <div class="col-12 col-md-8">
+                                                                                        <input class="form-control" placeholder="Nombre Completo" type="text"id="nombre" name="nombre">
+                                                                                    </div>
+                                                                                 -->
 
 
                 <br>
@@ -82,11 +84,11 @@
                 <br>
 
                 <!--<div class="form-check">
-                                                                                 <input class="form-check-input" type="checkbox" value="" id="respcorreo" name="respcorreo">
-                                                                                  <label class="form-check-label" for="respcorreo">
-                                                                                    Recibir Respuesta en mi correo
-                                                                                 </label>
-                                                                                 </div>-->
+                                                                                     <input class="form-check-input" type="checkbox" value="" id="respcorreo" name="respcorreo">
+                                                                                      <label class="form-check-label" for="respcorreo">
+                                                                                        Recibir Respuesta en mi correo
+                                                                                     </label>
+                                                                                     </div>-->
                 <br>
                 <input type="submit" value="Enviar PQRS" class="btn btn-success float-end">
 

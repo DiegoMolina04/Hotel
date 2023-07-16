@@ -7,8 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class tipo_pqrs extends Model
 {
-    use HasFactory;
+    //use HasFactory;
     
+    protected $table="tipo_pqrs";
+    protected $primaryKey="id";
+    protected $fillable = [
+        'nombre'
+    ];
+
     //Desactivar busqueda y llenado columnas create_at y update_at
     public $timestamps=false;
 }

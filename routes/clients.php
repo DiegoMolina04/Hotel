@@ -125,6 +125,7 @@ Route::middleware(['role:cliente'])->group(function () {
 
             --
         */
+        /******************** */
         //Route::post('/addcomplement/{evento}',[EventosController::class, 'addComplement'])->name('addComp');
         Route::resource('/pqrs',pqrsController::class);
         //Route::get('/pqrs',[pqrsController::class, 'index']);

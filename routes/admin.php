@@ -221,6 +221,7 @@ Route::middleware(['auth'])->group(function () {
             --
         */
         Route::resource('/gestion-pqrs',gestionPqrsController::class);
+        //Route::post('/gestion-pqrs/destroyView/{id}',[gestionPqrsController::class,'destroyView'])->name("destroyView");
 
     });
 });

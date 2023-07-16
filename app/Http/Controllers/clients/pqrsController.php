@@ -16,11 +16,6 @@ class pqrsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function redireccionar(){
-
-        redirect()->route('pqrs.index');
-    }
-
     public function index()
     {
         return view('clients.pqrs.index',['user' =>(object) [

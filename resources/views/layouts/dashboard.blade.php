@@ -1,85 +1,81 @@
 <!-- Plantilla de dashboard -->
 <!DOCTYPE html>
 <html lang="es">
-    <head>
 
-        <!-- Metadatos -->
-        <meta charset="UTF-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<head>
 
-        <!-- Título y espacio para personalizar el título -->
-        <title>DreamScape | @yield("title")</title>
+    <!-- Metadatos -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!--Importacion de Bootstrap a traves de Vite-->
-        @vite([
-            'resources/css/bootstrap.min.css',
-            'resources/js/bootstrap.bundle.min.js'
-        ])
+    <!-- Título y espacio para personalizar el título -->
+    <title>DreamScape | @yield('title')</title>
 
-        <!-- Estilos e incorporación de bootstrap -->
-        <link rel="stylesheet" href="{{asset("addons/css/app.css")}}">
+    <!--Importacion de Bootstrap a traves de Vite-->
+    @vite(['resources/css/bootstrap.min.css', 'resources/js/bootstrap.bundle.min.js'])
 
-        <link rel="shortcut icon" href="{{asset('img/others/icon.png')}}" type="image/x-icon">
-    </head>
+    <!-- Estilos e incorporación de bootstrap -->
+    <link rel="stylesheet" href="{{ asset('addons/css/app.css') }}">
 
-    <body>
-        <!-- Utilizando componente de cabecera (plantilla 2, para dashboard) -->
-        <x-headboard_home_2 href="{{route('redirect')}}">
-            <!-- Contenido en cabecera -->
+    <link rel="shortcut icon" href="{{ asset('img/others/icon.png') }}" type="image/x-icon">
+</head>
 
-            <!-- Contenedor elemento de perfil -->
-            <div class="fs-5">
-                <!-- Contenedor de imagen y menú-->
-                <div class="fotoPerfil">
+<body>
+    <!-- Utilizando componente de cabecera (plantilla 2, para dashboard) -->
+    <x-headboard_home_2 href="{{ route('redirect') }}">
+        <!-- Contenido en cabecera -->
 
-                    <!-- Contenedor de imagen de perfil -->
-                    <a href="#">
+        <!-- Contenedor elemento de perfil -->
+        <div class="fs-5">
+            <!-- Contenedor de imagen y menú-->
+            <div class="fotoPerfil">
 
-                        {{-- Verificando si el usuario tiene foto de perfil --}}
-                        @if(isset($user->url_photo))
+                <!-- Contenedor de imagen de perfil -->
+                <a href="#">
 
-                            {{-- Si el usuario tiene imagen se obtiene y despliega esa--}}
-                            <img width="100" height="100" style="object-fit: cover; border-radius: 30%;" 
-                            src="storage/userPhotos/{{$user->url_photo}}" alt="Foto de {{$user->name}}" >
-                        @else
+                    {{-- Verificando si el usuario tiene foto de perfil --}}
+                    @if (isset($user->url_photo))
+                        {{-- Si el usuario tiene imagen se obtiene y despliega esa --}}
+                        <img width="100" height="100" style="object-fit: cover; border-radius: 30%;"
+                            src="storage/userPhotos/{{ $user->url_photo }}" alt="Foto de {{ $user->name }}">
+                    @else
+                        {{-- De otra manera se despliega un svg por default --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                    @endif
+                </a>
+                <!-- Cierre contenedor de imagen de perfil -->
 
-                            {{-- De otra manera se despliega un svg por default--}}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                            </svg>
-                        @endif
+                <!-- Menú de opciones de usuario -->
+                <ul class="menuPerfil">
+                    <a>
+                        <li>Ver perfil</li>
                     </a>
-                    <!-- Cierre contenedor de imagen de perfil -->
-
-                    <!-- Menú de opciones de usuario -->
-                    <ul class="menuPerfil">
-                        <a>
-                            <li>Ver perfil</li>
-                        </a>
-                        <form action="{{route("logout")}}" method="post">
-                            @csrf
-                            <button 
-                                class="btn btn-danger"
-                                type="submit"
-                            >
-                                Cerrar sesión
-                            </button>
-                        </form>
-                    </ul>
-                    <!-- Cierre menú de opciones de usuario -->
-                </div>
-                <!-- Cierre contenedor imagen y menu -->
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button class="btn btn-danger" type="submit">
+                            Cerrar sesión
+                        </button>
+                    </form>
+                </ul>
+                <!-- Cierre menú de opciones de usuario -->
             </div>
-            <!-- Contenedor elemento de perfil -->
+            <!-- Cierre contenedor imagen y menu -->
+        </div>
+        <!-- Contenedor elemento de perfil -->
         </x-cabecera>
         <!-- Cierre componente cabecera -->
 
         <!-- Menú horizontal (versión para pantallas moviles) -->
-        <div class="container-fluid bg-light d-block d-lg-none" id="despliegueMenu" style="color:white; text-align: center; cursor:pointer;">
+        <div class="container-fluid bg-light d-block d-lg-none" id="despliegueMenu"
+            style="color:white; text-align: center; cursor:pointer;">
             <ul class="nav justify-content-center">
-                
+
                 {{-- 
                     Se empleara la directira @role() para validar si el usuario autenticado cumple con el rol deseado.
 
@@ -88,7 +84,7 @@
                     Asi mismo, se le enviara que el item de la barra de navegacion que debe marcarse como activo
                 --}}
                 @role('cliente')
-                    @include('components.client_menu', ['itemActive'=>View::getSection('itemActive')])
+                    @include('components.client_menu', ['itemActive' => View::getSection('itemActive')])
                 @endrole
 
                 @role('recepcionista')
@@ -96,7 +92,10 @@
                 @endrole
 
                 @role('servicio_cliente')
-                    Menu Rol trabajador servicio al cliente     
+                    {{-- Menu Rol trabajador servicio al cliente --}}
+                    @include('components.servicioCliente_menu', [
+                        'itemActive' => View::getSection('itemActive'),
+                    ])
                 @endrole
 
                 @role('coordinador_inventario')
@@ -138,7 +137,9 @@
                         Asi mismo, se le enviara que el item de la barra de navegacion que debe marcarse como activo
                     --}}
                     @role('cliente')
-                        @include('components.client_menu', ['itemActive'=>View::getSection('itemActive')])
+                        @include('components.client_menu', [
+                            'itemActive' => View::getSection('itemActive'),
+                        ])
                     @endrole
 
                     @role('recepcionista')
@@ -146,7 +147,10 @@
                     @endrole
 
                     @role('servicio_cliente')
-                        Menu Rol trabajador servicio al cliente     
+                        {{-- Menu Rol trabajador servicio al cliente --}}
+                        @include('components.servicioCliente_menu', [
+                            'itemActive' => View::getSection('itemActive'),
+                        ])
                     @endrole
 
                     @role('coordinador_inventario')
@@ -168,20 +172,20 @@
                 <!-- Pie de menú, nombre e imagen de usuario -->
                 <div class="px-4 fs-5">
                     {{-- Verificando si el usuario tiene foto de perfil --}}
-                    @if(isset($user->url_photo))
-
+                    @if (isset($user->url_photo))
                         {{-- Usamos foto de perfil del usuario --}}
-                        <img width="40" height="40" style="object-fit: cover; border-radius: 30%;" 
-                        src="storage/userPhotos/{{$user->url_photo}}" alt="Foto de {{$user->name}}" >
+                        <img width="40" height="40" style="object-fit: cover; border-radius: 30%;"
+                            src="storage/userPhotos/{{ $user->url_photo }}" alt="Foto de {{ $user->name }}">
                     @else
-
                         {{-- Caso contrario svg por default --}}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                         </svg>
                     @endif
-                    
+
                     <!-- Nombre de usuario -->
                     {{ Auth::user()->nombre }}
                 </div>
@@ -194,12 +198,13 @@
                 <!--Espació para insertar contenido de acuerdo a vista -->
                 @yield('content')
             </div>
-            
+
         </div>
-        
+
         <!-- Incluyendo pie de página  y scripts -->
         @include('components.footer_2')
 
         @yield('scripts')
-    </body>
+</body>
+
 </html>

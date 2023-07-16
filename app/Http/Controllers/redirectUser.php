@@ -41,7 +41,7 @@ class redirectUser extends Controller
             case "cliente":
                 return redirect()->route("dashboard-client");
             break;
-
+/** */
         }
         
     }
